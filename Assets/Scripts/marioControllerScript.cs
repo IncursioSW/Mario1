@@ -77,4 +77,25 @@ public class marioControllerScript : MonoBehaviour
             isJumping = true;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collider){
+
+        
+         
+         if (collider.gameObject.name.Contains("objectPolling")){
+            print("Mario ingreso al pool");
+            collider.GetComponent<ObjectPollingScript>().initializeEnemy();
+         }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collider){
+         
+         if (collider.gameObject.name.Contains("objectPolling")){
+            print("Mario salio dell pool");
+            collider.GetComponent<ObjectPollingScript>().destroyEnemy();
+         }
+
+    }
+
 }
